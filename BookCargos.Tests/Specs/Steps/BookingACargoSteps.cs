@@ -1,16 +1,21 @@
-﻿using TechTalk.SpecFlow;
+﻿using BookCargos.Model;
+using FluentAssertions;
+using TechTalk.SpecFlow;
 
 namespace BookCargos.Tests.Specs.Steps
 {
     [Binding]
     public class BookingACargoSteps
     {
+        private Vessel _vessel;
+        private Cargo _cargo;
+
         [Given(@"a vessel with enough capacity left")]
         public void GivenAVesselWithEnoughCapacityLeft()
         {
-            ScenarioContext.Current.Pending();
+            _vessel = Vessel.CreateEmpty();
         }
-        
+
         [Given(@"a full vessel without enough capacity left")]
         public void GivenAFullVesselWithoutEnoughCapacityLeft()
         {
@@ -20,13 +25,14 @@ namespace BookCargos.Tests.Specs.Steps
         [When(@"I book a cargo")]
         public void WhenIBookACargo()
         {
-            ScenarioContext.Current.Pending();
+            _cargo = new Cargo();
+            _cargo.BookOn(_vessel);
         }
-        
+
         [Then(@"the cargo is added to the vessel")]
         public void ThenTheCargoIsAddedToTheVessel()
         {
-            ScenarioContext.Current.Pending();
+            _vessel.WillTransport(_cargo).Should().BeTrue();
         }
         
         [Then(@"I receive a booking confirmation")]
