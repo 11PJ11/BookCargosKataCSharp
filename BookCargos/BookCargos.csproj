@@ -39,7 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Notification\BookingConfirmed.cs" />
+    <Compile Include="Infrastructure\Notification\INotifications.cs" />
     <Compile Include="Model\Cargo.cs" />
+    <Compile Include="Infrastructure\Notification\NoCapacityBookingRejected.cs" />
+    <Compile Include="Infrastructure\Notification\Notification.cs" />
+    <Compile Include="Infrastructure\Notification\Notifications.cs" />
     <Compile Include="Model\Vessel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
