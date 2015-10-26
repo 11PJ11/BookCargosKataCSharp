@@ -1,24 +1,26 @@
-﻿using System;
-
-namespace BookCargos.Model
+﻿namespace BookCargos.Model
 {
     public class Vessel
     {
+        private readonly ICargos _cargos;
+        private readonly CubicFeet _capacity;
+
         private Vessel() { }
 
-        public static Vessel CreateEmpty()
+        public Vessel(ICargos cargos, CubicFeet capacity)
         {
-            throw new NotImplementedException();
+            _cargos = cargos;
+            _capacity = capacity;
         }
 
         public bool WillTransport(Cargo cargo)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
-        public static Vessel CreateFull()
+        public void Clear()
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }

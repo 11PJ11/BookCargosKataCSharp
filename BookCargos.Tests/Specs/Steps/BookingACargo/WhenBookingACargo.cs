@@ -11,5 +11,6 @@ namespace BookCargos.Tests.Specs.Steps.BookingACargo
         protected INotifications Notifications = 
             Substitute.For<INotifications>();
 
+        protected readonly ICargos _cargos = Substitute.For<ICargos>();
     }
 }

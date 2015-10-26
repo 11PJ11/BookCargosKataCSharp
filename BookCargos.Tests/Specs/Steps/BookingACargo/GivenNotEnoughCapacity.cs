@@ -11,11 +11,7 @@ namespace BookCargos.Tests.Specs.Steps.BookingACargo
     public class GivenNotEnoughCapacity 
         : WhenBookingACargo
     {
-        [Given(@"a full vessel without enough capacity left")]
-        public void GivenAFullVesselWithoutEnoughCapacityLeft()
-        {
-            Vessel = Vessel.CreateFull();
-        }
+
 
         [Then(@"the cargo is not added to the vessel")]
         public void ThenTheCargoIsNotAddedToTheVessel()

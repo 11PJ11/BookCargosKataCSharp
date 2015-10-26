@@ -1,4 +1,5 @@
-﻿using BookCargos.Infrastructure.Notification;
+﻿using System.ComponentModel;
+using BookCargos.Infrastructure.Notification;
 using BookCargos.Model;
 using FluentAssertions;
 using NSubstitute;
@@ -16,17 +17,19 @@ namespace BookCargos.Tests.Specs.Steps.BookingACargo
             Notifications = new Notifications();
         }
 
-        [Given(@"a vessel with enough capacity left")]
-        public void GivenAVesselWithEnoughCapacityLeft()
+        [Given(@"a vessel with (.*) cubic feet capacity")]
+        public void GivenAVesselWithCubicFeetCapacity(int capacity)
         {
-            Vessel = Vessel.CreateEmpty();
+            Vessel = VesselBuilder.AVessel()
+                .WithCapacity(new CubicFeet(capacity))
+                .Transporting(_cargos)
+                .Build();
         }
-        
-        [When(@"I book a cargo")]
-        public void WhenIBookACargo()
+
+        [Given(@"the vessel is empty")]
+        public void GivenTheVesselIsEmpty()
         {
-            Cargo = new Cargo();
-            Cargo.BookOn(Vessel);
+            Vessel.Clear();
         }
 
         [Then(@"the cargo is added to the vessel")]
