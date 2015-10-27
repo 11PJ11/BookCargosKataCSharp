@@ -8,13 +8,21 @@ namespace BookCargos.Tests.Units.CargosTests
     {
 
         [Test]
-        public void ContainTheCargo()
+        public void ContainTheCargoGivenTheCargoWasAdded()
         {
             var cargo = Cargo.WithSize(new CubicFeet(100));
 
             Cargos.Add(cargo);
 
             Cargos.Contains(cargo).Should().BeTrue();
+        }
+
+        [Test]
+        public void NotContainTheCargoGivenTheCargoWasNotAdded()
+        {
+            var cargo = Cargo.WithSize(new CubicFeet(100));
+
+            Cargos.Contains(cargo).Should().BeFalse();
         }
     }
 }
