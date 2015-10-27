@@ -24,13 +24,18 @@ namespace BookCargos.Model
 
         public void Add(Cargo cargo)
         {
-            if(_capacity <= _cargos.TotalSizeAdding(cargo))
+            Notification notification;
+            if (_capacity >= _cargos.TotalSizeAdding(cargo))
             {
                 _cargos.Add(cargo);
+                notification = new BookingConfirmed();
+            }
+            else
+            {
+                notification = new NoCapacityBookingRejected();
             }
 
-            _notifications.Send(new BookingConfirmed());
-            
+            _notifications.Send(notification);
         }
     }
 }

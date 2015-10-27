@@ -10,8 +10,10 @@ namespace BookCargos.Tests.Units.VesselTests
         [Test]
         public void AcceptCargoGivenThatItHasEnoughCapacity()
         {
-            var aCargo = ACargo();
-            
+            var aCargo = Cargo.WithSize(TWENTY_CUBIC_FEET);
+            Cargos.TotalSizeAdding(aCargo)
+                .Returns(new CubicFeet(980));
+
             Vessel.Add(aCargo);
 
             Cargos.Received().Add(aCargo);
@@ -21,7 +23,9 @@ namespace BookCargos.Tests.Units.VesselTests
         [Test]
         public void RejectCargoGivenThereIsNotEnouhgCapacity()
         {
-            var aCargo = Cargo.WithSize(new CubicFeet(2000));
+            var aCargo = Cargo.WithSize(TWENTY_CUBIC_FEET);
+            Cargos.TotalSizeAdding(aCargo)
+                .Returns(new CubicFeet(5020));
 
             Vessel.Add(aCargo);
 

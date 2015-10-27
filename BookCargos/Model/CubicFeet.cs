@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BookCargos.Model
+﻿namespace BookCargos.Model
 {
     public class CubicFeet
     {
@@ -13,16 +11,11 @@ namespace BookCargos.Model
 
         public static CubicFeet Zero = new CubicFeet(0);
 
-        protected bool Equals(CubicFeet other)
-        {
-            return _value == other._value;
-        }
-
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             return Equals((CubicFeet) obj);
         }
 
@@ -44,6 +37,11 @@ namespace BookCargos.Model
         public static CubicFeet operator + (CubicFeet c1, CubicFeet c2)
         {
             return new CubicFeet(c1._value + c2._value);
+        }
+
+        protected bool Equals(CubicFeet other)
+        {
+            return _value == other._value;
         }
     }
 }

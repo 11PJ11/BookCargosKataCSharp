@@ -30,10 +30,5 @@ namespace BookCargos.Tests.Units.VesselTests
                 .NotifyingWith(Notifications)
                 .Build();
         }
-
-        protected Cargo ACargo()
-        {
-            return Cargo.WithSize(TWENTY_CUBIC_FEET);
-        }
     }
 }
