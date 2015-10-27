@@ -85,6 +85,27 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("booking a cargo on a vessel without enough capacity left")]
+        public virtual void BookingACargoOnAVesselWithoutEnoughCapacityLeft()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("booking a cargo on a vessel without enough capacity left", ((string[])(null)));
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line 14
+ testRunner.Given("a vessel with 1000 cubic feet capacity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 15
+ testRunner.And("the vessel has 950 cubic feet booked", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+ testRunner.When("I book a cargo of 100 cubic feet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 17
+ testRunner.Then("the cargo is not added to the vessel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 18
+ testRunner.And("I receive a notification that the vessel has not enough capacity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

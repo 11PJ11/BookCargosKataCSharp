@@ -9,6 +9,8 @@
             _size = size;
         }
 
+        public CubicFeet Size { get { return _size; }}
+
         public static Cargo WithSize(CubicFeet size)
         {
             return new Cargo(size);

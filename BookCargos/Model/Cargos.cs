@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BookCargos.Model
 {
@@ -6,9 +7,10 @@ namespace BookCargos.Model
     {
         private readonly IList<Cargo> _cargos = new List<Cargo>();
 
-        public CubicFeet TotalSize()
+        public CubicFeet TotalSizeAdding(Cargo cargo)
         {
-            return new CubicFeet(0);
+            var currentTotalSize = _cargos.Aggregate(CubicFeet.Zero,(acc, c)=> acc + c.Size);
+            return currentTotalSize + cargo.Size;
         }
 
         public void Add(Cargo cargo)

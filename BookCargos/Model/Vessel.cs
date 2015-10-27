@@ -1,5 +1,4 @@
-﻿using System;
-using BookCargos.Infrastructure.Notification;
+﻿using BookCargos.Infrastructure.Notification;
 
 namespace BookCargos.Model
 {
@@ -18,11 +17,6 @@ namespace BookCargos.Model
             _capacity = capacity;
         }
 
-        public bool IsTransporting(Cargo cargo)
-        {
-            throw new NotImplementedException();
-        }
-
         public void RemoveAllCargos()
         {
             _cargos.RemoveAll();
@@ -30,8 +24,13 @@ namespace BookCargos.Model
 
         public void Add(Cargo cargo)
         {
-            _cargos.Add(cargo);
+            if(_capacity <= _cargos.TotalSizeAdding(cargo))
+            {
+                _cargos.Add(cargo);
+            }
+
             _notifications.Send(new BookingConfirmed());
+            
         }
     }
 }
