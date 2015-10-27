@@ -33,7 +33,7 @@ namespace BookCargos.Model
 
         public static bool operator <= (CubicFeet c1, CubicFeet c2)
         {
-            throw new NotImplementedException();
+            return c1._value <= c2._value;
         }
 
         public static bool operator >= (CubicFeet c1, CubicFeet c2)

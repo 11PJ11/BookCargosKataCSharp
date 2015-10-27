@@ -91,6 +91,7 @@
     <Compile Include="Units\CargoTests\CargoFixture.cs" />
     <Compile Include="Units\CargoTests\WhenBookingOnAVesselShould.cs" />
     <Compile Include="Units\CubicFeetTests\WhenAddingCubicFeetShould.cs" />
+    <Compile Include="Units\CubicFeetTests\WhenComparingTheValueOfCubicFeetShould.cs" />
     <Compile Include="Units\CubicFeetTests\WhenComparingTwoInstancesShould.cs" />
     <Compile Include="Units\VesselTests\VesselFixture.cs" />
     <Compile Include="Units\VesselTests\WhenAddingCargoVesselShould.cs" />
