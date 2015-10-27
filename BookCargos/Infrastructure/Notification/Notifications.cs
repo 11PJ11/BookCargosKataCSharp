@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BookCargos.Infrastructure.Notification
+﻿namespace BookCargos.Infrastructure.Notification
 {
     public class Notifications : INotifications
     {

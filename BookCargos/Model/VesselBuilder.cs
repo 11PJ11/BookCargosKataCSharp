@@ -1,9 +1,12 @@
-﻿namespace BookCargos.Model
+﻿using BookCargos.Infrastructure.Notification;
+
+namespace BookCargos.Model
 {
     public class VesselBuilder
     {
         private static CubicFeet _cubicFeet = new CubicFeet(0);
         private static ICargos _cargos = new Cargos();
+        private INotifications _notifications = new Notifications();
 
         public static VesselBuilder AVessel()
         {
@@ -24,8 +27,13 @@
 
         public Vessel Build()
         {
-            return new Vessel(_cargos, _cubicFeet);
+            return new Vessel(_notifications, _cargos, _cubicFeet);
         }
 
+        public VesselBuilder NotifyingWith(INotifications notifications)
+        {
+            _notifications = notifications;
+            return this;
+        }
     }
 }

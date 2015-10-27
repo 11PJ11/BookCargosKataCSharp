@@ -16,11 +16,6 @@ namespace BookCargos.Tests.Specs.Steps.BookingACargo
 
         protected readonly ICargos Cargos = new Cargos();
 
-        [BeforeScenario]
-        public void Setup()
-        {
-            Notifications = new Notifications();
-        }
 
         [Given(@"a vessel with (.*) cubic feet capacity")]
         public void GivenAVesselWithCubicFeetCapacity(int capacity)
@@ -28,6 +23,7 @@ namespace BookCargos.Tests.Specs.Steps.BookingACargo
             Vessel = VesselBuilder.AVessel()
                 .WithCapacity(new CubicFeet(capacity))
                 .Transporting(Cargos)
+                .NotifyingWith(Notifications)
                 .Build();
         }
 
@@ -47,7 +43,7 @@ namespace BookCargos.Tests.Specs.Steps.BookingACargo
         [Then(@"the cargo is added to the vessel")]
         public void ThenTheCargoIsAddedToTheVessel()
         {
-            Vessel.IsTransporting(Cargo).Should().BeTrue();
+            Cargos.Contains(Cargo).Should().BeTrue();
         }
         
         [Then(@"I receive a booking confirmation")]

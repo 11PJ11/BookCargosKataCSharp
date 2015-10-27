@@ -1,16 +1,19 @@
 ﻿using System;
+using BookCargos.Infrastructure.Notification;
 
 namespace BookCargos.Model
 {
     public class Vessel : IVessel
     {
+        private readonly INotifications _notifications;
         private readonly ICargos _cargos;
         private readonly CubicFeet _capacity;
 
         private Vessel() { }
 
-        public Vessel(ICargos cargos, CubicFeet capacity)
+        public Vessel(INotifications notifications, ICargos cargos, CubicFeet capacity)
         {
+            _notifications = notifications;
             _cargos = cargos;
             _capacity = capacity;
         }
@@ -27,7 +30,8 @@ namespace BookCargos.Model
 
         public void Add(Cargo cargo)
         {
-            throw new NotImplementedException();
+            _cargos.Add(cargo);
+            _notifications.Send(new BookingConfirmed());
         }
     }
 }

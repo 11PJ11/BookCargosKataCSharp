@@ -44,11 +44,11 @@
     <Compile Include="Model\Cargo.cs" />
     <Compile Include="Infrastructure\Notification\NoCapacityBookingRejected.cs" />
     <Compile Include="Infrastructure\Notification\Notification.cs" />
-    <Compile Include="Infrastructure\Notification\Notifications.cs" />
     <Compile Include="Model\Cargos.cs" />
     <Compile Include="Model\CubicFeet.cs" />
     <Compile Include="Model\ICargos.cs" />
     <Compile Include="Model\IVessel.cs" />
+    <Compile Include="Infrastructure\Notification\Notifications.cs" />
     <Compile Include="Model\Vessel.cs" />
     <Compile Include="Model\VesselBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

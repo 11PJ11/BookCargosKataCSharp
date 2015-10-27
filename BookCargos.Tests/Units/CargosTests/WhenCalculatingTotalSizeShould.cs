@@ -16,16 +16,16 @@ namespace BookCargos.Tests.Units.CargosTests
             Cargos.TotalSize().Should().Be(ZERO_CUBIC_FEET);
         }
 
-        [Test]
-        public void ReturnTheTotalSizeOfTheCargosInCubicFeetGivenSomeCargoWereAdded()
-        {
-            Cargos.RemoveAll();
-            Cargos.Add(Cargo.WithSize(HUNDRED_CUBIC_FEET));
-            Cargos.Add(Cargo.WithSize(HUNDRED_CUBIC_FEET));
+        //[Test]
+        //public void ReturnTheTotalSizeOfTheCargosInCubicFeetGivenSomeCargoWereAdded()
+        //{
+        //    Cargos.RemoveAll();
+        //    Cargos.Add(Cargo.WithSize(HUNDRED_CUBIC_FEET));
+        //    Cargos.Add(Cargo.WithSize(HUNDRED_CUBIC_FEET));
 
-            var totalSize = Cargos.TotalSize();
+        //    var totalSize = Cargos.TotalSize();
 
-            totalSize.Should().Be(TWO_HUNDRED_CUBIC_FEET);
-        }
+        //    totalSize.Should().Be(TWO_HUNDRED_CUBIC_FEET);
+        //}
 }
 }
