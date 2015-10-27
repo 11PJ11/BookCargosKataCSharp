@@ -18,9 +18,8 @@
             return true;
         }
 
-        public void Clear()
+        public void RemoveAllCargos()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

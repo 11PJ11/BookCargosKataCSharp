@@ -12,7 +12,7 @@ namespace BookCargos.Tests.Units.VesselTests
         {
             Vessel = CreateAVessel();
 
-            Vessel.Clear();
+            Vessel.RemoveAllCargos();
 
             Cargos.Received().RemoveAll();
         }

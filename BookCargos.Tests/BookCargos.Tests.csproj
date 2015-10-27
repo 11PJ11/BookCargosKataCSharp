@@ -79,9 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BookingACargo.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\Steps\BookingACargo\GivenEnoughCapacitySteps.cs" />
-    <Compile Include="Specs\Steps\BookingACargo\GivenNotEnoughCapacity.cs" />
-    <Compile Include="Specs\Steps\BookingACargo\WhenBookingACargo.cs" />
+    <Compile Include="Specs\Steps\BookingACargo\BookingACargoSteps.cs" />
     <Compile Include="Units\CargoTests\CargoFixture.cs" />
     <Compile Include="Units\CargoTests\WhenBookingOnAVessel.cs" />
     <Compile Include="Units\VesselTests\VesselFixture.cs" />
