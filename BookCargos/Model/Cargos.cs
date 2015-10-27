@@ -10,12 +10,16 @@
 
         public void Add(Cargo cargo)
         {
-            throw new System.NotImplementedException();
         }
 
         public void RemoveAll()
         {
-            throw new System.NotImplementedException();
+            
+        }
+
+        public bool Contains(Cargo cargo)
+        {
+            return true;
         }
     }
 }

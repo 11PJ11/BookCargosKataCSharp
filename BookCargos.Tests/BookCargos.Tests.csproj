@@ -81,9 +81,13 @@
     </Compile>
     <Compile Include="Specs\Steps\BookingACargo\BookingACargoSteps.cs" />
     <Compile Include="Units\CargosTests\CargosFixture.cs" />
+    <Compile Include="Units\CargosTests\WhenAddingACargoToCargosShould.cs" />
+    <Compile Include="Units\CargosTests\WhenCalculatingTotalSizeShould.cs" />
+    <Compile Include="Units\CargosTests\WhenRemovingAllCargosShould.cs" />
     <Compile Include="Units\CargoTests\CargoFixture.cs" />
     <Compile Include="Units\CargoTests\WhenBookingOnAVesselShould.cs" />
     <Compile Include="Units\CubicFeetTests\CubicFeetFixture.cs" />
+    <Compile Include="Units\CubicFeetTests\WhenComparingTwoInstancesShould.cs" />
     <Compile Include="Units\VesselTests\VesselFixture.cs" />
     <Compile Include="Units\VesselTests\WhenClearingTheVesselShould.cs" />
   </ItemGroup>
