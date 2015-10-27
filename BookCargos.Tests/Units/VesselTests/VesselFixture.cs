@@ -19,4 +19,15 @@ namespace BookCargos.Tests.Units.VesselTests
                 .Build();
         }
     }
+
+    public class WhenAddingCargoVesselShould
+    {
+        [Test]
+        public void AcceptCargoGivenThatItHasEnoughCapacity()
+        {
+
+            //booking.ConfirmationNumber().Should().Be(new ConfirmationNumber("1"));
+
+        }
+    }
 }

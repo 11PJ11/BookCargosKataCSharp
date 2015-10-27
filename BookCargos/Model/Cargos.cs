@@ -18,7 +18,7 @@ namespace BookCargos.Model
 
         public void RemoveAll()
         {
-            
+            _cargos.Clear();
         }
 
         public bool Contains(Cargo cargo)

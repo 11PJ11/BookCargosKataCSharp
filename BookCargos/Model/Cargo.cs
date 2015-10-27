@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BookCargos.Model
+﻿namespace BookCargos.Model
 {
     public class Cargo
     {
@@ -16,9 +14,9 @@ namespace BookCargos.Model
             return new Cargo(size);
         }
 
-        public void BookOn(Vessel vessel)
+        public void BooksOn(IVessel vessel)
         {
-            throw new NotImplementedException();
+            vessel.Add(this);
         }
     }
 }

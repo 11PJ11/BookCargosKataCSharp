@@ -2,7 +2,7 @@
 
 namespace BookCargos.Model
 {
-    public class Vessel
+    public class Vessel : IVessel
     {
         private readonly ICargos _cargos;
         private readonly CubicFeet _capacity;
@@ -15,7 +15,7 @@ namespace BookCargos.Model
             _capacity = capacity;
         }
 
-        public bool WillTransport(Cargo cargo)
+        public bool IsTransporting(Cargo cargo)
         {
             throw new NotImplementedException();
         }
@@ -23,6 +23,11 @@ namespace BookCargos.Model
         public void RemoveAllCargos()
         {
             _cargos.RemoveAll();
+        }
+
+        public void Add(Cargo cargo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

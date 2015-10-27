@@ -6,20 +6,26 @@ namespace BookCargos.Tests.Units.CargosTests
 {
     public class WhenCalculatingTotalSizeShould : CargosFixture
     {
+        private CubicFeet TWO_HUNDRED_CUBIC_FEET = new CubicFeet(200);
+        private CubicFeet HUNDRED_CUBIC_FEET = new CubicFeet(100);
+        private CubicFeet ZERO_CUBIC_FEET = new CubicFeet(0);
+
         [Test]
         public void ReturnZeroCubicFeetGivenTheCargosIsEmpty()
         {
-            Cargos.TotalSize().Should().Be(new CubicFeet(0));
+            Cargos.TotalSize().Should().Be(ZERO_CUBIC_FEET);
         }
 
         [Test]
-        public void ReturnTheSizeOfOneCargoInCubicFeetGivenOneCargoWasAdded()
+        public void ReturnTheTotalSizeOfTheCargosInCubicFeetGivenSomeCargoWereAdded()
         {
             Cargos.RemoveAll();
+            Cargos.Add(Cargo.WithSize(HUNDRED_CUBIC_FEET));
+            Cargos.Add(Cargo.WithSize(HUNDRED_CUBIC_FEET));
 
-            Cargos.Add(Cargo.WithSize(new CubicFeet(100)));
+            var totalSize = Cargos.TotalSize();
 
-            Cargos.TotalSize().Should().Be(new CubicFeet(100));
+            totalSize.Should().Be(TWO_HUNDRED_CUBIC_FEET);
         }
 }
 }

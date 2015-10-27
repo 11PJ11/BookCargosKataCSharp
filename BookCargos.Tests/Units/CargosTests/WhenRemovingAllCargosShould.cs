@@ -1,19 +1,28 @@
 ﻿using BookCargos.Model;
 using FluentAssertions;
 using NUnit.Framework;
+using Ploeh.AutoFixture;
 
 namespace BookCargos.Tests.Units.CargosTests
 {
     public class WhenRemovingAllCargosShould : CargosFixture
     {
-        private CubicFeet ZERO_CUBIC_FEET = new CubicFeet(0);
+        private readonly Fixture _fixture = new Fixture();
 
         [Test]
-        public void RemoveAll()
+        public void RemoveAllGivenSomePresents()
         {
+            var aCargo = ACargo();
+            Cargos.Add(aCargo);
+
             Cargos.RemoveAll();
 
-            Cargos.TotalSize().Should().Be(ZERO_CUBIC_FEET);
+            Cargos.Contains(aCargo).Should().BeFalse();
+        }
+
+        private Cargo ACargo()
+        {
+            return _fixture.Create<Cargo>();
         }
     }
 }

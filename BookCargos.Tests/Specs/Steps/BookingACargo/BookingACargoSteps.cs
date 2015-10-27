@@ -41,13 +41,13 @@ namespace BookCargos.Tests.Specs.Steps.BookingACargo
         public void WhenIBookACargoOfCubicFeet(int cargoSize)
         {
             Cargo = Cargo.WithSize(new CubicFeet(cargoSize));
-            Cargo.BookOn(Vessel);
+            Cargo.BooksOn(Vessel);
         }
 
         [Then(@"the cargo is added to the vessel")]
         public void ThenTheCargoIsAddedToTheVessel()
         {
-            Vessel.WillTransport(Cargo).Should().BeTrue();
+            Vessel.IsTransporting(Cargo).Should().BeTrue();
         }
         
         [Then(@"I receive a booking confirmation")]
