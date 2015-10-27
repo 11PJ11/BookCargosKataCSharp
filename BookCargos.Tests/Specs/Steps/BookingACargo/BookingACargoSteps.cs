@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using BookCargos.Infrastructure.Notification;
+﻿using BookCargos.Infrastructure.Notification;
 using BookCargos.Model;
 using FluentAssertions;
 using NSubstitute;

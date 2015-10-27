@@ -1,4 +1,6 @@
-﻿namespace BookCargos.Model
+﻿using System;
+
+namespace BookCargos.Model
 {
     public class Vessel
     {
@@ -15,11 +17,12 @@
 
         public bool WillTransport(Cargo cargo)
         {
-            return true;
+            throw new NotImplementedException();
         }
 
         public void RemoveAllCargos()
         {
+            _cargos.RemoveAll();
         }
     }
 }
