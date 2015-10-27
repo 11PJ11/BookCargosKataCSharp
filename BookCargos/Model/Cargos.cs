@@ -2,9 +2,10 @@
 {
     public class Cargos : ICargos
     {
+
         public CubicFeet TotalSize()
         {
-            throw new System.NotImplementedException();
+            return new CubicFeet(0);
         }
 
         public void Add(Cargo cargo)
