@@ -20,6 +20,15 @@ namespace BookCargos.Tests.Units.CubicFeetTests
 
             hundredCubicFeet.Should().NotBe(tenCubicFeet);
         }
+
+        [Test]
+        public void ReturnTrueGivenTheyHaveEqualValues()
+        {
+            var hundredCubicFeetA = new CubicFeet(100);
+            var hundredCubicFeetB = new CubicFeet(100);
+
+            hundredCubicFeetA.Should().Be(hundredCubicFeetB);
+        }
     }
 
 }
