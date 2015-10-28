@@ -1,4 +1,5 @@
-﻿using BookCargos.Model;
+﻿using BookCargos.Actions;
+using BookCargos.Model;
 using TechTalk.SpecFlow;
 
 namespace BookCargos.Tests.Specs.Steps
@@ -12,22 +13,22 @@ namespace BookCargos.Tests.Specs.Steps
             var vessel = new Vessel(capacity.InCubicFeet());
         }
 
+        [Given(@"a cargo of (.*) cubic feet in size")]
+        public void GivenACargoOfCubicFeetInSize(int cargoSize)
+        {
+            var cargo = new Cargo(cargoSize.InCubicFeet());
+        }
+
         [Given(@"the vessel has been booked for a total of (.*) cubic feet")]
         public void GivenTheVesselHasBeenBookedForATotalOfCubicFeet(int bookedCapacity)
         {
             ScenarioContext.Current.Pending();
         }
-        
-        [Given(@"a cargo of (.*) cubic feet in size")]
-        public void GivenACargoOfCubicFeetInSize(int cargoSize)
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
+
         [When(@"I book the cargo on the vessel")]
         public void WhenIBookTheCargoOnTheVessel()
         {
-            ScenarioContext.Current.Pending();
+            var bookingOfACargo = new BookingOfACargo();
         }
 
         [Then(@"the vessel will transport the cargo")]
