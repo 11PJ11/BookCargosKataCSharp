@@ -1,4 +1,4 @@
-﻿using System;
+﻿using BookCargos.Model;
 using TechTalk.SpecFlow;
 
 namespace BookCargos.Tests.Specs.Steps
@@ -7,19 +7,19 @@ namespace BookCargos.Tests.Specs.Steps
     public class BookingACargoSteps
     {
         [Given(@"a vessel with (.*) cubic feet capacity")]
-        public void GivenAVesselWithCubicFeetCapacity(int p0)
+        public void GivenAVesselWithCubicFeetCapacity(int capacity)
         {
-            ScenarioContext.Current.Pending();
+            var vessel = new Vessel(capacity.InCubicFeet());
         }
         
         [Given(@"the vessel has (.*) cubic feet capacity left")]
-        public void GivenTheVesselHasCubicFeetCapacityLeft(int p0)
+        public void GivenTheVesselHasCubicFeetCapacityLeft(int capacityLeft)
         {
             ScenarioContext.Current.Pending();
         }
         
         [Given(@"a cargo of (.*) cubic feet in size")]
-        public void GivenACargoOfCubicFeetInSize(int p0)
+        public void GivenACargoOfCubicFeetInSize(int cargoSize)
         {
             ScenarioContext.Current.Pending();
         }
