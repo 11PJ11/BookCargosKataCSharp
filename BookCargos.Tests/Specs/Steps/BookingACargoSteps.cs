@@ -11,9 +11,9 @@ namespace BookCargos.Tests.Specs.Steps
         {
             var vessel = new Vessel(capacity.InCubicFeet());
         }
-        
-        [Given(@"the vessel has (.*) cubic feet capacity left")]
-        public void GivenTheVesselHasCubicFeetCapacityLeft(int capacityLeft)
+
+        [Given(@"the vessel has been booked for a total of (.*) cubic feet")]
+        public void GivenTheVesselHasBeenBookedForATotalOfCubicFeet(int bookedCapacity)
         {
             ScenarioContext.Current.Pending();
         }
@@ -29,9 +29,21 @@ namespace BookCargos.Tests.Specs.Steps
         {
             ScenarioContext.Current.Pending();
         }
-        
+
+        [Then(@"the vessel will transport the cargo")]
+        public void ThenTheVesselWillTransportTheCargo()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+        [Then(@"I received a booking confirmation with a number")]
+        public void ThenIReceivedABookingConfirmationWithANumber()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
         [Then(@"the vessel doesn't accept the cargo")]
-        public void ThenTheVesselDoesnTAcceptTheCargo()
+        public void ThenTheVesselDoesNotAcceptTheCargo()
         {
             ScenarioContext.Current.Pending();
         }

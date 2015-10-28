@@ -66,24 +66,22 @@ namespace BookCargos.Tests.Specs.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("booking a cargo on a vessel without enough capacity left")]
-        public virtual void BookingACargoOnAVesselWithoutEnoughCapacityLeft()
+        [NUnit.Framework.DescriptionAttribute("booking a cargo on a vessel with enough capacity left")]
+        public virtual void BookingACargoOnAVesselWithEnoughCapacityLeft()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("booking a cargo on a vessel without enough capacity left", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("booking a cargo on a vessel with enough capacity left", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.Given("a vessel with 2000 cubic feet capacity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("the vessel has 20 cubic feet capacity left", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
  testRunner.And("a cargo of 50 cubic feet in size", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
+#line 9
  testRunner.When("I book the cargo on the vessel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.Then("the vessel will transport the cargo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
- testRunner.Then("the vessel doesn\'t accept the cargo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 12
- testRunner.And("I received a notification for missing capacity on the vessel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I received a booking confirmation with a number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
