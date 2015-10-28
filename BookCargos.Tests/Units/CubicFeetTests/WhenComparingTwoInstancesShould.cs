@@ -24,4 +24,15 @@ namespace BookCargos.Tests.Units.CubicFeetTests
             hundredCubicFeetA.Should().Be(hundredCubicFeetB);
         }
     }
+
+    public class WhenCreatingCubicFeetShould
+    {
+        [Test]
+        public void ReturnZeroCubicFeetGivenNegativeValue()
+        {
+            var negativeCubicFeet = new CubicFeet(-100);
+
+            negativeCubicFeet.Should().Be(CubicFeet.Zero);
+        }
+    }
 }
