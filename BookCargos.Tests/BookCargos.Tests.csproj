@@ -84,7 +84,8 @@
       <DependentUpon>BookingACargo.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\Steps\BookingACargoSteps.cs" />
-    <Compile Include="Units\Model\CubicFeetTests\CubicFeetFixture.cs" />
+    <Compile Include="Units\Model\CubicFeetTests\WhenCreatingCubicFeetShould.cs" />
+    <Compile Include="Units\Model\VesselTests\WhenCheckingWhetherItIsTransportingACargoShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookCargos\BookCargos.csproj">
@@ -100,9 +101,7 @@
       <LastGenOutput>BookingACargo.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Units\Model\VesselTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

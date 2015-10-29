@@ -1,5 +1,6 @@
 ﻿using BookCargos.Actions;
 using BookCargos.Model;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace BookCargos.Tests.Specs.Steps
@@ -7,16 +8,19 @@ namespace BookCargos.Tests.Specs.Steps
     [Binding]
     public class BookingACargoSteps
     {
+        private Vessel _vessel;
+        private Cargo _cargo;
+
         [Given(@"a vessel with (.*) cubic feet capacity")]
         public void GivenAVesselWithCubicFeetCapacity(int capacity)
         {
-            var vessel = new Vessel(capacity.InCubicFeet());
+            _vessel = new Vessel(capacity.InCubicFeet());
         }
 
         [Given(@"a cargo of (.*) cubic feet in size")]
         public void GivenACargoOfCubicFeetInSize(int cargoSize)
         {
-            var cargo = new Cargo(cargoSize.InCubicFeet());
+            _cargo = new Cargo(cargoSize.InCubicFeet());
         }
 
         [Given(@"the vessel has been booked for a total of (.*) cubic feet")]
@@ -34,7 +38,7 @@ namespace BookCargos.Tests.Specs.Steps
         [Then(@"the vessel will transport the cargo")]
         public void ThenTheVesselWillTransportTheCargo()
         {
-            ScenarioContext.Current.Pending();
+            _vessel.IsTransporting(_cargo).Should().BeTrue();
         }
 
         [Then(@"I received a booking confirmation with a number")]

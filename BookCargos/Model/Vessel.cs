@@ -5,5 +5,10 @@
         public Vessel(CubicFeet capacity)
         {
         }
+
+        public bool IsTransporting(Cargo cargo)
+        {
+            return false;
+        }
     }
 }
