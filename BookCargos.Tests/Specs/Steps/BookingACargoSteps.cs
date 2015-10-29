@@ -36,7 +36,8 @@ namespace BookCargos.Tests.Specs.Steps
         [When(@"I book the cargo on the vessel")]
         public void WhenIBookTheCargoOnTheVessel()
         {
-            var bookingOfACargo = new BookingOfACargo();
+            var bookingOfACargo = new BookingCargoOnVessel(_vessel, _cargo);
+            bookingOfACargo.Execute();
         }
 
         [Then(@"the vessel will transport the cargo")]

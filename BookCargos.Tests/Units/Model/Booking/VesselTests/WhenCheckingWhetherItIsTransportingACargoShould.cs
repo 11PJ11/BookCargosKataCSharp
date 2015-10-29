@@ -1,19 +1,17 @@
-﻿using BookCargos.Model.Booking;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 
 namespace BookCargos.Tests.Units.Model.Booking.VesselTests
 {
-    [TestFixture]
-    public class WhenCheckingWhetherItIsTransportingACargoShould
+    public class WhenCheckingWhetherItIsTransportingACargoShould 
+        : VesselFixture
     {
         [Test]
         public void ReturnFalseGivenNoCargoHasBeenAdded()
         {
-            var vessel = new Vessel(1000.CubicFeet());
-            var aCargo = new Cargo(20.CubicFeet());
+            var aCargo = GetACargo();
 
-            vessel.IsTransporting(aCargo).Should().BeFalse();
+            Vessel.IsTransporting(aCargo).Should().BeFalse();
         }
     }
 }
