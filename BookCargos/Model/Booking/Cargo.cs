@@ -1,4 +1,4 @@
-﻿namespace BookCargos.Model
+﻿namespace BookCargos.Model.Booking
 {
     public class Cargo
     {

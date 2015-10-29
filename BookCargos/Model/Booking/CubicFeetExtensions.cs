@@ -1,11 +1,10 @@
-﻿namespace BookCargos.Model
+﻿namespace BookCargos.Model.Booking
 {
     public static class CubicFeetExtensions
     {
-        public static CubicFeet InCubicFeet(this int volume)
+        public static CubicFeet CubicFeet(this int volume)
         {
             return new CubicFeet(volume);
         }
-        
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
-using BookCargos.Model;
+using BookCargos.Model.Booking;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace BookCargos.Tests.Units.Model.CubicFeetTests
+namespace BookCargos.Tests.Units.Model.Booking.CubicFeetTests
 {
     public class WhenCreatingCubicFeetShould
     {

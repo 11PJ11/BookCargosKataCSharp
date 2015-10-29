@@ -1,6 +1,9 @@
 ﻿using BookCargos.Actions;
-using BookCargos.Model;
+using BookCargos.Infrastructure.Notification;
+using BookCargos.Model.Booking;
+using BookCargos.Model.Notification;
 using FluentAssertions;
+using NSubstitute;
 using TechTalk.SpecFlow;
 
 namespace BookCargos.Tests.Specs.Steps
@@ -10,17 +13,18 @@ namespace BookCargos.Tests.Specs.Steps
     {
         private Vessel _vessel;
         private Cargo _cargo;
+        private readonly INotify _notifier = Substitute.For<INotify>();
 
         [Given(@"a vessel with (.*) cubic feet capacity")]
         public void GivenAVesselWithCubicFeetCapacity(int capacity)
         {
-            _vessel = new Vessel(capacity.InCubicFeet());
+            _vessel = new Vessel(capacity.CubicFeet());
         }
 
         [Given(@"a cargo of (.*) cubic feet in size")]
         public void GivenACargoOfCubicFeetInSize(int cargoSize)
         {
-            _cargo = new Cargo(cargoSize.InCubicFeet());
+            _cargo = new Cargo(cargoSize.CubicFeet());
         }
 
         [Given(@"the vessel has been booked for a total of (.*) cubic feet")]
@@ -44,19 +48,20 @@ namespace BookCargos.Tests.Specs.Steps
         [Then(@"I received a booking confirmation with a number")]
         public void ThenIReceivedABookingConfirmationWithANumber()
         {
-            ScenarioContext.Current.Pending();
+            var bookingId = new BookingId(1234);
+            _notifier.Received().Send(new BookingConfirmed(bookingId));
         }
 
         [Then(@"the vessel doesn't accept the cargo")]
         public void ThenTheVesselDoesNotAcceptTheCargo()
         {
-            ScenarioContext.Current.Pending();
+            _vessel.IsTransporting(_cargo).Should().BeFalse();
         }
         
         [Then(@"I received a notification for missing capacity on the vessel")]
         public void ThenIReceivedANotificationForMissingCapacityOnTheVessel()
         {
-            ScenarioContext.Current.Pending();
+            _notifier.Received().Send(new MissingCapacityOnVessel());
         }
     }
 }

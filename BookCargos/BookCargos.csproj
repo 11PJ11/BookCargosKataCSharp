@@ -40,15 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\BookingOfACargo.cs" />
-    <Compile Include="Model\Cargo.cs" />
-    <Compile Include="Model\CubicFeet.cs" />
-    <Compile Include="Model\CubicFeetExtensions.cs" />
-    <Compile Include="Model\Vessel.cs" />
+    <Compile Include="Infrastructure\Notification\BookingConfirmed.cs" />
+    <Compile Include="Model\Booking\BookingId.cs" />
+    <Compile Include="Model\Booking\Cargo.cs" />
+    <Compile Include="Model\Booking\CubicFeet.cs" />
+    <Compile Include="Model\Booking\CubicFeetExtensions.cs" />
+    <Compile Include="Model\Notification\INotify.cs" />
+    <Compile Include="Infrastructure\Notification\MissingCapacityOnVessel.cs" />
+    <Compile Include="Infrastructure\Notification\Notification.cs" />
+    <Compile Include="Model\Booking\Vessel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

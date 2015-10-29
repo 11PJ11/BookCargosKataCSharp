@@ -84,8 +84,8 @@
       <DependentUpon>BookingACargo.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\Steps\BookingACargoSteps.cs" />
-    <Compile Include="Units\Model\CubicFeetTests\WhenCreatingCubicFeetShould.cs" />
-    <Compile Include="Units\Model\VesselTests\WhenCheckingWhetherItIsTransportingACargoShould.cs" />
+    <Compile Include="Units\Model\Booking\CubicFeetTests\WhenCreatingCubicFeetShould.cs" />
+    <Compile Include="Units\Model\Booking\VesselTests\WhenCheckingWhetherItIsTransportingACargoShould.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BookCargos\BookCargos.csproj">
