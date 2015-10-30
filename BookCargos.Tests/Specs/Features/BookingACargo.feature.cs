@@ -75,11 +75,11 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
  testRunner.Given("a vessel with 2000 cubic feet capacity", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.And("a cargo of 50 cubic feet in size", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("a Container of 50 cubic feet in size", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.When("I book the cargo on the vessel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I book the Container on the vessel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.Then("the vessel will transport the cargo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the vessel will transport the Container", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
  testRunner.And("I received a booking confirmation with a number", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

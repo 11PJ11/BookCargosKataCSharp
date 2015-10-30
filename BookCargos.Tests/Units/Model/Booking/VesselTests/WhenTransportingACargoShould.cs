@@ -14,7 +14,7 @@ namespace BookCargos.Tests.Units.Model.Booking.VesselTests
             
             Vessel.Transport(aCargo);
 
-            TransportedCargos.Received().Add(Arg.Any<Cargo>());
+            TransportedCargo.Received().Load(Arg.Any<Container>());
         }
     }
 }

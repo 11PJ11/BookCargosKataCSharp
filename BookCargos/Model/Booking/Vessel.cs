@@ -1,18 +1,22 @@
 ﻿namespace BookCargos.Model.Booking
 {
-    public class Vessel : ITransportCargos
+    public class Vessel : ITransportCargo
     {
-        public Vessel(CubicFeet capacity)
+        private readonly ICargo _transportedCargo;
+
+        public Vessel(CubicFeet capacity, ICargo transportedCargo)
         {
+            _transportedCargo = transportedCargo;
         }
 
-        public bool IsTransporting(Cargo cargo)
+        public bool IsTransporting(Container container)
         {
             return false;
         }
 
-        public void Transport(Cargo cargo)
+        public void Transport(Container container)
         {
+            _transportedCargo.Load(container);
         }
     }
 }

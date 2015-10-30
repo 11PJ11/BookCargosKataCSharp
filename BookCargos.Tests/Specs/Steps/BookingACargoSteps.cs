@@ -12,19 +12,21 @@ namespace BookCargos.Tests.Specs.Steps
     public class BookingACargoSteps
     {
         private Vessel _vessel;
-        private Cargo _cargo;
+        private ICargo _cargo;
+        private Container _container;
         private readonly INotify _notifier = Substitute.For<INotify>();
 
         [Given(@"a vessel with (.*) cubic feet capacity")]
         public void GivenAVesselWithCubicFeetCapacity(int capacity)
         {
-            _vessel = new Vessel(capacity.CubicFeet());
+            _cargo = new Cargo();
+            _vessel = new Vessel(capacity.CubicFeet(), _cargo);
         }
 
-        [Given(@"a cargo of (.*) cubic feet in size")]
-        public void GivenACargoOfCubicFeetInSize(int cargoSize)
+        [Given(@"a Container of (.*) cubic feet in size")]
+        public void GivenAContainerOfCubicFeetInSize(int size)
         {
-            _cargo = new Cargo(cargoSize.CubicFeet());
+            _container = new Container(size.CubicFeet());
         }
 
         [Given(@"the vessel has been booked for a total of (.*) cubic feet")]
@@ -33,17 +35,17 @@ namespace BookCargos.Tests.Specs.Steps
             ScenarioContext.Current.Pending();
         }
 
-        [When(@"I book the cargo on the vessel")]
-        public void WhenIBookTheCargoOnTheVessel()
+        [When(@"I book the Container on the vessel")]
+        public void WhenIBookTheContainerOnTheVessel()
         {
-            var bookingOfACargo = new BookingCargoOnVessel(_vessel, _cargo);
-            bookingOfACargo.Execute();
+            var bookingContainersOnVessel = new BookingContainersOnVessel(_vessel, _container);
+            bookingContainersOnVessel.Execute();
         }
 
-        [Then(@"the vessel will transport the cargo")]
-        public void ThenTheVesselWillTransportTheCargo()
+        [Then(@"the vessel will transport the Container")]
+        public void ThenTheVesselWillTransportTheContainer()
         {
-            _vessel.IsTransporting(_cargo).Should().BeTrue();
+            _vessel.IsTransporting(_container).Should().BeTrue();
         }
 
         [Then(@"I received a booking confirmation with a number")]
@@ -53,10 +55,10 @@ namespace BookCargos.Tests.Specs.Steps
             _notifier.Received().Send(new BookingConfirmed(bookingId));
         }
 
-        [Then(@"the vessel doesn't accept the cargo")]
-        public void ThenTheVesselDoesNotAcceptTheCargo()
+        [Then(@"the vessel doesn't accept the Container")]
+        public void ThenTheVesselDoesNotAcceptTheContainer()
         {
-            _vessel.IsTransporting(_cargo).Should().BeFalse();
+            _vessel.IsTransporting(_container).Should().BeFalse();
         }
         
         [Then(@"I received a notification for missing capacity on the vessel")]

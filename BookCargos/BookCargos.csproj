@@ -39,13 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actions\BookingCargoOnVessel.cs" />
+    <Compile Include="Actions\BookingContainersOnVessel.cs" />
     <Compile Include="Infrastructure\Notification\BookingConfirmed.cs" />
     <Compile Include="Model\Booking\BookingId.cs" />
+    <Compile Include="Model\Booking\Container.cs" />
     <Compile Include="Model\Booking\Cargo.cs" />
     <Compile Include="Model\Booking\CubicFeet.cs" />
     <Compile Include="Model\Booking\CubicFeetExtensions.cs" />
-    <Compile Include="Model\Booking\ICargos.cs" />
+    <Compile Include="Model\Booking\ICargo.cs" />
     <Compile Include="Model\Booking\ITransportCargos.cs" />
     <Compile Include="Model\Notification\INotify.cs" />
     <Compile Include="Infrastructure\Notification\MissingCapacityOnVessel.cs" />

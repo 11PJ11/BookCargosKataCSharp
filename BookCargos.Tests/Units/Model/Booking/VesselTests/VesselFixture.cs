@@ -1,18 +1,26 @@
 ﻿using BookCargos.Model.Booking;
 using NSubstitute;
 using NUnit.Framework;
+using Ploeh.AutoFixture;
 
 namespace BookCargos.Tests.Units.Model.Booking.VesselTests
 {
     [TestFixture]
     public class VesselFixture
     {
-        protected Vessel Vessel = new Vessel(1000.CubicFeet());
-        protected ICargos TransportedCargos = Substitute.For<ICargos>();
+        protected Vessel Vessel;
+        protected Fixture Fixture = new Fixture();
+        protected ICargo TransportedCargo = Substitute.For<ICargo>();
 
-        protected static Cargo GetACargo()
+        [SetUp]
+        public void Init()
         {
-            return new Cargo(20.CubicFeet());
+            Vessel = new Vessel(1000.CubicFeet(), TransportedCargo);
+        }
+
+        protected Container GetACargo()
+        {
+            return Fixture.Create<Container>();
         }
     }
 }

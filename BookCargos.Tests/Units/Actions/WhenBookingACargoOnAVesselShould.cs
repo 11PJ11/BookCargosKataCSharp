@@ -7,14 +7,14 @@ namespace BookCargos.Tests.Units.Actions
 {
     public class WhenBookingACargoOnAVesselShould
     {
-        private BookingCargoOnVessel _bookingAction;
+        private BookingContainersOnVessel _bookingAction;
         private readonly ITransportCargos _vessel = Substitute.For<ITransportCargos>();
 
         [SetUp]
         public void Init()
         {
-            var aCargo = new Cargo(10.CubicFeet());
-            _bookingAction = new BookingCargoOnVessel(_vessel, aCargo);
+            var aCargo = new Container(10.CubicFeet());
+            _bookingAction = new BookingContainersOnVessel(_vessel, aCargo);
         }
 
         [Test]
@@ -22,7 +22,7 @@ namespace BookCargos.Tests.Units.Actions
         {
             _bookingAction.Execute();
 
-            _vessel.Received().Transport(Arg.Any<Cargo>());
+            _vessel.Received().Transport(Arg.Any<Container>());
         }
     }
 }
